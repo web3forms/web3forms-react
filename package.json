@@ -1,8 +1,8 @@
 {
-  "name": "use-web3forms",
+  "name": "@web3forms/react",
   "version": "1.2.1",
   "description": "Recieve form submissions directly to your inbox without any configuration. Powered by Web3forms. Integrates with react-hook-form and other form libs too!",
-  "author": "Lalit2005",
+  "author": "surjithctly",
   "license": "MIT",
   "keywords": [
     "form",
@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lalit2005/use-web3forms.git"
+    "url": "https://github.com/surjithctly/web3forms-react.git"
   },
   "husky": {
     "hooks": {
