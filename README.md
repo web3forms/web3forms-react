@@ -25,20 +25,18 @@ Recieve form submissions directly to your inbox without any configuration. Power
 
 ## Demo
 
-https://use-web3forms.netlify.app/
-
-☝️ useWeb3forms + React hook form. See the code [here](https://github.com/lalit2005/use-web3forms/tree/master/examples/react-hook-form)
+Coming soon!
 
 ## Installation
 
 First get your Web3forms access from [here](https://web3forms.com/#start). And then👇
 
 ```bash
-npm i use-web3forms
+npm i @web3forms/react
 ```
 And for yarn users👇
 ```bash
-yarn add use-web3forms
+yarn add @web3forms/react
 ```
 > Also please do note that the Web3forms Access key can be shared in public (just like the firebase keys).
 
