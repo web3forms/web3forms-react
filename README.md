@@ -1,4 +1,3 @@
-
 [![Web3forms](https://web3forms.com/img/logo-light.svg)](https://web3forms.com/)
 
 # Web3forms React Plugin
@@ -16,14 +15,14 @@ Recieve form submissions directly to your inbox without any backend or server. P
 
 ## Features ✨
 
-- ✅  Super lightweight
-- ✅  Zero dependencies
-- ✅  Full Typescript support
-- ✅  Easy to use and a simple Access key
-- ✅  Works with any form libraries
-- ✅  Examples provided
-- ✅  No configuration required (except for the Access key)
-- ✅  Works in [Node.js](https://github.com/web3forms/web3forms-react/tree/main/examples/with-node.js) (non-browser) environment too ✌️
+- ✅ Super lightweight
+- ✅ Zero dependencies
+- ✅ Full Typescript support
+- ✅ Easy to use and a simple Access key
+- ✅ Works with any form libraries
+- ✅ Examples provided
+- ✅ No configuration required (except for the Access key)
+- ✅ Works in [Node.js](https://github.com/web3forms/web3forms-react/tree/main/examples/with-node.js) (non-browser) environment too ✌️
 
 ## Demo
 
@@ -40,6 +39,7 @@ npm i @web3forms/react
 # or
 yarn add @web3forms/react
 ```
+
 > Note: Web3forms Access key can be shared in public code.
 
 ## Usage 📖
@@ -48,15 +48,15 @@ yarn add @web3forms/react
 
 ```js
 // Import Plugin
-import useWeb3Forms from "@web3forms/react";
+import useWeb3Forms from '@web3forms/react';
 
 // Add inside your function
-const accessKey = "YOUR_ACCESS_KEY_HERE";
+const accessKey = 'YOUR_ACCESS_KEY_HERE';
 const { submit } = useWeb3Forms({
   access_key: accessKey,
   settings: {
-    from_name: "Acme Inc",
-    subject: "New Contact Message from your Website",
+    from_name: 'Acme Inc',
+    subject: 'New Contact Message from your Website',
   },
   onSuccess: (message, data) => {
     console.log(message);
@@ -66,48 +66,73 @@ const { submit } = useWeb3Forms({
   },
 });
 ```
+
 then just provide the data to be submitted to `submit` function
 
 ```jsx {3-6}
 <button
   onClick={(e) => {
     submit({
-      name: "John",
-      email: "john@email.com",
-      message: "Message Content"
+      name: 'John',
+      email: 'john@email.com',
+      message: 'Message Content',
     });
   }}>
-    Submit form
+  Submit form
 </button>
 ```
+
 or using the React Hook Form
 
 ```jsx
- <form onSubmit={handleSubmit(submit)}>
+import { useForm } from "react-hook-form";
+import useWeb3Forms from "@web3forms/react";
+//
+export default function Form() {
+const {register, handleSubmit} = useForm();
+//
+const { submit: onSubmit } = useWeb3Forms({
+  access_key: apiKey,
+  settings: {
+    from_name: 'Acme Inc',
+    subject: 'New Contact Message from your Website',
+  },
+  onSuccess: (message, data) => {
+    console.log(message);
+  },
+  onError: (message, data) => {
+    console.log(message);
+  },
+});
+//
+  return (
+<form onSubmit={handleSubmit(submit)}>
   <input
-        type="text"
-        {...register("name", {
-          required: "Full name is required",
-          maxLength: 80,
-        })}
-      />
+    type='text'
+    {...register('name', {
+      required: 'Full name is required',
+      maxLength: 80,
+    })}
+  />
   <input
-    type="email"
-    {...register("email", {
-      required: "Enter your email",
+    type='email'
+    {...register('email', {
+      required: 'Enter your email',
       pattern: {
         value: /^\S+@\S+$/i,
-        message: "Please enter a valid email",
+        message: 'Please enter a valid email',
       },
     })}
   />
   <textarea
-    {...register("message", {
-      required: "Enter your Message",
+    {...register('message', {
+      required: 'Enter your Message',
     })}
   />
-  <button type="submit">Submit Form</button>
-</form>
+  <button type='submit'>Submit Form</button>
+</form>;
+  )
+}
 ```
 
 ---
@@ -116,30 +141,36 @@ or using the React Hook Form
 
 ```js
 interface FormData {
-    name: string;
-    checkbox: boolean;
+  name: string;
+  checkbox: boolean;
 }
 
-const { submit } = useWeb3forms<FormData>({
-    access_key: "YOUR_ACCESS_KEY_HERE",
+const { submit } =
+  useWeb3forms <
+  FormData >
+  {
+    access_key: 'YOUR_ACCESS_KEY_HERE',
     onSuccess: (successMessage, data) => {
-      console.log(successMessage, data)
+      console.log(successMessage, data);
     },
     onError: (errorMessage, data) => {
-      console.log(errorMessage, data)
+      console.log(errorMessage, data);
     },
-});
+  };
 ```
 
 > Make sure you provide a json with atleast one key-value pair to `submit`
 
 ---
+
 ## FAQ
 
 #### Should I have a Web3forms account to use this library?
+
 Yes. You should create your Access key from [Web3forms](https://web3forms.com/).
 
 #### How many form submissions can I make?
+
 Web3forms has a generous free plan. You can view the latest pricing [here](https://web3forms.com/#pricing)
 
 ## Run Locally
@@ -167,10 +198,9 @@ Start the server
 ```bash
 yarn dev
 ```
+
 `yarn dev` first builds the project so that the type definitions are emitted to `dist` and then `microbundle` starts watching for file changes.
 
 ## Credits
 
 This plugin is originally created by our community member [Lalit2005](https://github.com/Lalit2005). We sincerely thank them for their contributions.
-
-
