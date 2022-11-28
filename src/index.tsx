@@ -1,9 +1,11 @@
 const useWeb3forms = <T extends {}>({
-  apikey,
+  access_key,
+  settings = {},
   onSuccess,
   onError,
 }: {
-  apikey: string;
+  access_key: string;
+  settings?: any;
   onSuccess: (successMessage: string, data: Response<T>) => void;
   onError: (errorMessage: string, data: Response<T>) => void;
 }) => {
@@ -14,7 +16,8 @@ const useWeb3forms = <T extends {}>({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        apikey,
+        access_key,
+        ...settings,
         ...formData,
       }),
     });

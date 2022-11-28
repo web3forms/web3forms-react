@@ -2,11 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useForm } from 'react-hook-form';
-import useWeb3forms from 'use-web3forms';
+import useWeb3forms from '@web3forms/react';
 import { useState } from 'react';
 
 const Home: NextPage = () => {
-  const [apiKey, setApiKey] = useState<string>('');
+  const [accessKey, setaAccessKey] = useState<string>('');
   interface FormData {
     name: string;
     email: string;
@@ -17,12 +17,18 @@ const Home: NextPage = () => {
     formState: { errors },
     register,
     handleSubmit,
+    reset,
   } = useForm<FormData>();
 
   const { submit } = useWeb3forms<FormData>({
-    apikey: apiKey,
+    access_key: accessKey,
+    settings: {
+      from_name: 'Acme Inc',
+      subject: 'New Contact Message from your Website',
+    },
     onSuccess: (successMessage) => {
       alert(successMessage);
+      reset();
     },
     onError: (errorMessage) => {
       alert(errorMessage);
@@ -38,13 +44,13 @@ const Home: NextPage = () => {
         <h1>
           Web3forms + <code>useWeb3forms</code> + React hook form
         </h1>
-        <p>Enter API key that you got from web3forms.com</p>
+        <p>Enter Access Key that you got from web3forms.com</p>
         <input
           type='text'
-          placeholder='Api key'
-          value={apiKey}
-          id='api-key'
-          onChange={(e) => setApiKey(e.target.value)}
+          placeholder='Access key'
+          value={accessKey}
+          id='access-key'
+          onChange={(e) => setaAccessKey(e.target.value)}
         />
         <hr />
         <h2>
