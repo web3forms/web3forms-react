@@ -5,7 +5,11 @@ describe("main", () => {
   let SUCCESS: boolean = false;
 
   const { submit } = useWeb3forms({
-    apikey: "YOUR_ACCESS_KEY_HERE",
+    access_key: "YOUR_ACCESS_KEY_HERE",
+    settings: {
+      from_name: "Acme Inc",
+      subject: "New Contact Message from your Website",
+    },
     onSuccess: (data: string) => {
       SUCCESS = true;
       console.log(JSON.stringify(data));
@@ -31,7 +35,7 @@ describe("main", () => {
   it("should return an error", async () => {
     let IS_ERROR = false;
     const { submit } = useWeb3forms({
-      apikey: "asd",
+      access_key: "invalid_key",
       onSuccess: (data: string) => {
         console.log(JSON.stringify(data));
       },
