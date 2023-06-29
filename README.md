@@ -163,6 +163,10 @@ const { submit } =
 
 ---
 
+## Security Details
+
+We recommend that you hide your api key in a process.env file so that users cannot access your api key.
+
 ## FAQ
 
 #### Should I have a Web3forms account to use this library?
