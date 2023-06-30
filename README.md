@@ -92,7 +92,7 @@ export default function Form() {
 const {register, handleSubmit} = useForm();
 //
 const { submit: onSubmit } = useWeb3Forms({
-  access_key: apiKey,
+  access_key: access_key,
   settings: {
     from_name: 'Acme Inc',
     subject: 'New Contact Message from your Website',
@@ -165,7 +165,7 @@ const { submit } =
 
 ## Security Details
 
-We recommend that you hide your api key in a process.env file so that users cannot access your api key.
+The ``access key`` is an alias to your email, thus it's safe to disclose it directly inside your html code since it's public. However, if you want domain lock purchase our [Pro plan](https://web3forms.com/#pricing) 
 
 ## FAQ
 
