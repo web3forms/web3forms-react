@@ -165,7 +165,7 @@ const { submit } =
 
 ## Security Details
 
-The ``access key`` is an alias to your email, thus it's safe to disclose it directly inside your html code since it's public. However, if you want domain lock purchase our [Pro plan](https://web3forms.com/#pricing) 
+The ``access key`` is an alias to your email, thus it's safe to disclose it directly inside your html code since it's public. However, if you want domain lock purchase our [Pro plan](https://web3forms.com/pricing) 
 
 ## FAQ
 
@@ -175,7 +175,7 @@ Yes. You should create your Access key from [Web3forms](https://web3forms.com/).
 
 #### How many form submissions can I make?
 
-Web3forms has a generous free plan. You can view the latest pricing [here](https://web3forms.com/#pricing)
+Web3forms has a generous free plan. You can view the latest pricing [here](https://web3forms.com/pricing)
 
 ## Run Locally
 
